@@ -2,17 +2,17 @@
 terraform {
   required_providers {
     azurerm = {
-      source = "hashicorp/azurerm"
-      version = "~>2.0"
+      source = ""
+      version = ""
     }
   }
 }
-provider "azurerm" {
+provider "" {
   features {}
 }
 
 # Create a resource group if it doesn't exist
-resource "azurerm_resource_group" "myterraformgroup" {
+resource "_resource_group" "myterraformgroup" {
     name     = "myResourceGroup"
     location = "eastus"
 

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Machine Crée</title>
+    <link rel="stylesheet" href=" {{asset('css/creation_machine/machineCree.css')}} ">
+</head>
+<body>
+    <h1>La machine est configurée</h1>
+    <h2>Voici les détails</h2>
+
+    <table>
+        <tr>
+            <td><b>Système d'exploitation</b></td>
+            <td>{{ ChoixOs }}</td>
+        </tr>
+        <tr>
+            <td><b>DNS</b></td>
+            <td>{{ DNS }}</td>
+        </tr>
+        <tr>
+            <td><b>VLAN</b></td>
+            <td>vlan {{Vlan}}</td>
+        </tr>
+        <tr>
+            <td><b>Nombre de Coeurs</b></td>
+            <td>{{ NbCoeurs }} coeurs</td>
+        </tr>
+        <tr>
+            <td><b>Taille du disque</b></td>
+            <td>{{ TailleDisque }} Go</td>
+        </tr>
+        <tr>
+            <td><b>Taille de la RAM</b></td>
+            <td>{{ TailleRAM }} Go</td>
+        </tr>
+        <tr>
+            <td><b>Nombre Interfaces Réseau</b></td>
+            <td>{{ NbInterfaces }}</td>
+        </tr>
+    </table>
+
+    <div class="yaml">
+        <h2>Fichier Yaml Généré</h2>
+        <div class="yaml_fichier">
+            ---<br><br>
+            systemeExploitation: {{ ChoixOs }}<br><br>
+            DNS: {{ DNS }}<br><br>
+            Vlan: {{ Vlan }}<br><br>
+            NbCoeurs: {{ NbCoeurs }}<br><br>
+            Stockage: {{ TailleDisque }}<br><br>
+            MemoireRam: {{ TailleRAM }}<br><br>
+            InterfacesReseau: {{ NbInterfaces }}
+
+        </div>
+    </div>
+    
+    
+    
+</body>
+</html>

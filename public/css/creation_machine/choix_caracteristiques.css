@@ -1,0 +1,112 @@
+html {
+  min-height: 100vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+body {
+  background-color: #f4a261;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.formulaire {
+  background-color: #fff;
+  width: 45rem;
+  height: 48rem;
+  box-shadow: 3px 6px 4px rgba(0, 0, 0, 0.25);
+}
+h1 {
+  text-align: center;
+  padding: 3rem;
+  margin-bottom: 4rem;
+  color: #565656;
+  font-weight: 100;
+}
+
+ul {
+  list-style-type: none;
+  height: 23rem;
+}
+
+li {
+  height: 3rem;
+}
+
+label {
+  padding: 0 0 2rem 0;
+  font-size: 1.25em;
+}
+.radioBtn:after {
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: #d1d3d1;
+  content: "";
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+}
+
+.radioBtn:checked:after {
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: #f4a261;
+  content: "";
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+}
+
+.radioBtn:hover {
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: #f4a261;
+  content: "";
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+}
+
+#bouton {
+  /* GESTION DU TEXT DU BOUTON */
+
+  color: #fff;
+  font-size: 3em;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  /*CREATION DU BOUTON*/
+  width: 40rem;
+  height: 5rem;
+  background-color: #e76f51;
+  margin-top: 2rem;
+  box-shadow: 2px 4px 3px rgba(0, 0, 0, 0.25);
+
+  cursor: pointer;
+}
+
+#bouton:hover {
+  box-shadow: 3px 6px 4px rgba(0, 0, 0, 0.25);
+  margin-top: 1.9rem;
+}
+
+a {
+  /*RETRAIT DU SOULIGNEMENT APRES AVOIR VISITE LE LIEN*/
+  text-decoration: none;
+}
+
+#pourBouton {
+  display: flex;
+  justify-content: space-around;
+}

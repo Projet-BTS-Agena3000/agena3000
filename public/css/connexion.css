@@ -1,0 +1,98 @@
+html{
+    /* On définit la taille minimale de la page HTML*/
+    min-height: 100vh;
+
+    /* On centre tous les éléments horizontalement et verticalement */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+body{
+    background-color: #191919;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* FORMULAIRE */
+
+form{
+    /* On crée le style du formulaire */
+    background-color: #191919;
+    width: 65rem;
+    height: 45rem;
+    box-shadow: 1px 4px 4px #0c0c0c;
+    border-radius: 5px;
+}
+
+
+.titre{
+    /* On crée le style du titre "Connexion" */
+    text-align: center;
+    color: #868686;
+    font-size: 3.5em;
+    padding: 2rem 0 4rem 0;
+}
+
+label{
+    /* style des labels */
+    color: #D6D6D6;
+    font-size: 2.5rem;
+}
+
+
+/* champ Identifiant */
+.identifiant{
+    margin: 0 0 3rem 7rem;
+}
+
+#login{
+    /* style de l'input text login */
+    height: 5rem;
+    width: 50rem;
+    border: none;
+    background-color: #858282;
+}
+
+
+/* Champ mot de passe */
+.mdp{
+    margin: 0 0 0 7rem;
+}
+
+#mot_de_passe{
+    /* Style de l'input du mot de passe */
+    height: 5rem;
+    width: 50rem;
+    border: 1px solid #000;
+    background-color: #858282;
+}
+
+
+
+
+
+#bouton{
+    margin: 7rem 0 0 7rem;
+
+    /* GESTION DU TEXT DU BOUTON */
+    color: #FFF;
+    font-size: 3.5em;
+
+    /* On centre le texte du bouton */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;        
+
+    /* CREATION DU BOUTON */
+    width: 50rem;
+    height: 7rem;
+    background: linear-gradient(#3E3E3E, #362E2E);
+    border-radius: 2rem;
+    cursor: pointer;        
+}
+    
+a{
+    /*RETRAIT DU SOULIGNEMENT APRES AVOIR VISITE LE LIEN*/
+    text-decoration: none;
+}

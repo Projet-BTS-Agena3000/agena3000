@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href=" {{ asset('css/connexion.css') }} ">
+    <link rel="icon" type="image/png" href=" {{asset('logo_icone.png')}} " />
+    <title>Connexion</title>
+</head>
+<body>
+    <form action="">
+        <div class="titre">Connexion</div>
+
+        <div class="identifiant">
+            <label for="login">Identifiant</label><br>
+            <input type="text" id="login">
+        </div>
+        
+        <div class="mdp">
+            <label for="mot_de_passe">Mot de passe</label><br>
+            <input type="text" id="mot_de_passe">
+        </div>
+
+        <a href=" {{path('accueilMembre')}} ">
+            <div id="bouton">
+                Connexion
+            </div>
+        </a>
+
+        
+
+    </form>
+</body>
+</html>

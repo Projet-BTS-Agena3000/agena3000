@@ -1,0 +1,45 @@
+/* espacement */
+
+table {
+    table-layout: fixed;
+    width: 30rem;
+    border-collapse: collapse;
+    border: 1px solid  #000;
+  }
+  
+  thead th:nth-child(1) {
+    width: 30%;
+  }
+  
+  thead th:nth-child(2) {
+    width: 20%;
+  }
+  
+  thead th:nth-child(3) {
+    width: 15%;
+  }
+  
+  thead th:nth-child(4) {
+    width: 35%;
+  }
+  
+  th, td {
+    padding: 1rem;
+  }
+
+  td{
+      border-right:  1px solid #000;
+      border-bottom:  1px solid  #000;
+  }
+  
+  .yaml{
+    margin-top: 5rem;
+  }
+
+  .yaml_fichier{
+    
+    width: 30rem;
+    padding-left: 1rem;
+    border: 2px solid #bebebe;
+    background-color: #CDCDCD;
+  }

@@ -123,7 +123,6 @@ class DefaultController extends AbstractController{
 
     #[Route('/gerer_fonctionnalites/installation/wireshark', name: 'installerWireshark')]
     public function installerWireshark(){
-        $this->render('membre/etat_machines/chargement.html.twig');
         shell_exec('ansible-playbook ../../playbooks/install/wireshark.yml --ask-become-pass');
         return $this->render('membre/etat_machines/installs/wireshark.html.twig');
     }

@@ -115,4 +115,19 @@ class DefaultController extends AbstractController{
     public function etatMachines(){
         return $this->render('membre/etat_machines/etat_machines.html.twig');
     }
+
+    #[Route('/gerer_fonctionnalites', name: 'gestionFonctionnalites')]
+    public function gererFonctionnalites(){
+        return $this->render('membre/etat_machines/fonctionnalites.html.twig');
+    }
+
+    #[Route('/gerer_fonctionnalites/installation/wireshark', name: 'installerWireshark')]
+    public function installerWireshark(){
+        return $this->render('membre/etat_machines/installs/wireshark.html.twig');
+    }
+
+    #[Route('gerer_fonctionnalites/installation/nginx', name: 'installerNginx')]
+    public function installerNginx(){
+        return $this->render('membre/etat_machines/installs/nginx.html.twig');
+    }
 }

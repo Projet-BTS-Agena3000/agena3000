@@ -2,10 +2,14 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{asset('css/etat_machines/etat_machines.css')}}">
     <link rel="icon" type="image/png" href=" {{asset('logo_icone.png')}} " />
     <title>Document</title>
 </head>
 <body>
-    <h1>Etat des machines</h1>
+    <header>
+        <div><h1>Etat des machines<h1></div>
+        <div class="bouton"><a href="{{path('gestionFonctionnalites')}}">Gérer les fonctionnalités</a></div>
+    </header>
 </body>
 </html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestion Fonctionnalités</title>
+  <link rel="stylesheet" href="{{asset('css/etat_machines/fonctionnalites.css')}}">
+</head>
+<body>
+  <div class="item">
+    <h3>Wireshark</h3>
+    <div class="boutons">
+      <div class="boutonInstall"><a href="{{path('installerWireshark')}}">Installer</a></div>
+      <div class="boutonUninstall"><a href="#">Désinstaller</a></div>
+    </div>
+  </div>
+
+  <div class="item">
+    <h3>Git</h3>
+    <div class="boutons">
+      <div class="boutonInstall"><a href="#">Installer</a></div>
+      <div class="boutonUninstall"><a href="#">Désinstaller</a></div>
+    </div>
+  </div>
+
+  <div class="item">
+    <h3>Nginx</h3>
+    <div class="boutons">
+      <div class="boutonInstall"><a href="{{path('installerNginx')}}">Installer</a></div>
+      <div class="boutonUninstall"><a href="#">Désinstaller</a></div>
+    </div>
+  </div>
+</body>
+</html>

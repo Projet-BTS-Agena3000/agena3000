@@ -1,0 +1,8 @@
+.line{
+  display: flex;
+}
+
+.tab{
+  background-color: aqua;
+  width: 10px;
+}

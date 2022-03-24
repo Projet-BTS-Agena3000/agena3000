@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Ansible;
 use Symfony\Bundle\MakerBundle\FileManager;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -123,8 +124,8 @@ class DefaultController extends AbstractController{
 
     #[Route('/gerer_fonctionnalites/installation/wireshark', name: 'installerWireshark')]
     public function installerWireshark(){
-        $this->render('membre/etat_machines/chargement.html.twig');
-        shell_exec('ansible-playbook ../../playbooks/install/wireshark.yml --ask-become-pass');
+        $installation = new Ansible;
+        $installation->installer('wireshark');
         return $this->render('membre/etat_machines/installs/wireshark.html.twig');
     }
 

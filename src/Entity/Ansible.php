@@ -15,7 +15,7 @@ class Ansible
     {
         $password = 'BtsSn2022';
         $output = shell_exec('ansible-playbook ../../playbooks/install/' . $nomService . '.yml --ask-become-pass');
-        if($output == ''){
+        if($output == 'BECOME PASSWORD:'){
             shell_exec($password);
         }
     }

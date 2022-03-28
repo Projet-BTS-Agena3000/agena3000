@@ -13,7 +13,10 @@ class Ansible
 
     public function installer($nomService)
     {
-        shell_exec('ansible-playbook ../../playbooks/install/' . $nomService . '.yml --ask-become-pass=BtsSn2022');
-        
+        $password = 'BtsSn2022';
+        $output = shell_exec('ansible-playbook ../../playbooks/install/' . $nomService . '.yml --ask-become-pass');
+        if($output == 'BECOME PASSWORD:'){
+            shell_exec($password);
+        }
     }
 }

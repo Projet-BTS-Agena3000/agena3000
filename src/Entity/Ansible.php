@@ -14,6 +14,5 @@ class Ansible
     public function installer($nomService)
     {
         shell_exec('ansible-playbook ../../playbooks/install/' . $nomService . '.yml --ask-become-pass');
-        shell_exec('../../scripts/install-' . $nomService . '.sh');
     }
 }

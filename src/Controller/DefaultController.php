@@ -16,6 +16,7 @@ use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Validator\Constraints\Length;
 
 class DefaultController extends AbstractController{
     #[Route('/', name: 'default')]
@@ -126,9 +127,16 @@ class DefaultController extends AbstractController{
     public function installerWireshark(){
         $installation = new Ansible;
         $e = $installation->installer('wireshark');
-        $e = explode('"', $e);
+        $err = explode(' ', $e);
+        $tailleTab = count($err);
+        for($cpt = 0; $cpt < $tailleTab; $cpt++){
+            if($err[$cpt] == "FAILED!"){
+
+            }
+        }
+        // $e = explode('"', $e);
         if($e){
-            return $this->render('membre/etat_machines/erreur.html.twig', array('erreur' => $e[3]));
+            return $this->render('membre/etat_machines/erreur.html.twig', array('erreur' => $e));
         }else{
             return $this->render('membre/etat_machines/installs/wireshark.html.twig');
         }

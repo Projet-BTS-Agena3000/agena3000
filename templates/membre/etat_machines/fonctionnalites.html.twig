@@ -7,31 +7,34 @@
 </head>
 <body>
   <header>
-    <div class="boutonRetour"><img src="{{asset('images/flecheRetour.svg')}}" alt="retour"><a href="{{path('etatMachines')}}"></a></div>
+    <div class="boutonRetour"><a href="{{path('etatMachines')}}"> <img src="{{asset('images/flecheRetour.svg')}}" alt="retour"> Retour aux machines</a></div>
   </header>
 
-  <div class="item">
-    <h3>Wireshark</h3>
-    <div class="boutons">
-      <div class="boutonInstall"><a href="{{path('installerWireshark')}}">Installer</a></div>
-      <div class="boutonUninstall"><a href="{{path('desinstallerWireshark')}}">Désinstaller</a></div>
+  <div class="items">
+    <div class="item">
+      <h3>Wireshark</h3>
+      <div class="boutons">
+        <div class="boutonInstall"><a href="{{path('installerWireshark')}}">Installer</a></div>
+        <div class="boutonUninstall"><a href="{{path('desinstallerWireshark')}}">Désinstaller</a></div>
+      </div>
     </div>
-  </div>
 
-  <div class="item">
-    <h3>Git</h3>
-    <div class="boutons">
-      <div class="boutonInstall"><a href="{{path('installerGit')}}">Installer</a></div>
-      <div class="boutonUninstall"><a href="{{path('desinstallerGit')}}">Désinstaller</a></div>
+    <div class="item">
+      <h3>Git</h3>
+      <div class="boutons">
+        <div class="boutonInstall"><a href="{{path('installerGit')}}">Installer</a></div>
+        <div class="boutonUninstall"><a href="{{path('desinstallerGit')}}">Désinstaller</a></div>
+      </div>
     </div>
-  </div>
 
-  <div class="item">
-    <h3>Nginx</h3>
-    <div class="boutons">
-      <div class="boutonInstall"><a href="{{path('installerNginx')}}">Installer</a></div>
-      <div class="boutonUninstall"><a href="#">Désinstaller</a></div>
+    <div class="item">
+      <h3>Nginx</h3>
+      <div class="boutons">
+        <div class="boutonInstall"><a href="{{path('installerNginx')}}">Installer</a></div>
+        <div class="boutonUninstall"><a href="#">Désinstaller</a></div>
+      </div>
     </div>
   </div>
+  
 </body>
 </html>

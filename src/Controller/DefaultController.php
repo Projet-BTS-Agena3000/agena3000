@@ -127,9 +127,9 @@ class DefaultController extends AbstractController{
     public function installerWireshark() {
         $installation = new Ansible;
         $e = $installation->installer('wireshark');
-        
-        if($e){
-            $err = explode(' ', $e);
+        $err = explode(' ', $e);
+        if(count($err) > 1){
+            
             $tailleTab = count($err);
             for($cpt = 0; $cpt < $tailleTab; $cpt++) {
                 if($err[$cpt] == "FAILED!") {

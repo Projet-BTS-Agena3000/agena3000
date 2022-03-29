@@ -134,8 +134,10 @@ class DefaultController extends AbstractController{
                 $e = explode('"', $e);
                 $err = $e[3];
                 $cpt = $tailleTab;
-            }else if($err[$cpt] == "changed=0") {
-                $err = "Wireshark est déjà installé !"
+            }
+            if ($err[$cpt] == "changed=0") {
+                $err = "Wireshark est déjà installé !";
+                $cpt = $tailleTab;
             }
         }
         

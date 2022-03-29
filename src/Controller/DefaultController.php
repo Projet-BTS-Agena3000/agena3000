@@ -153,8 +153,23 @@ class DefaultController extends AbstractController{
     #[Route('/gerer_fonctionnalites/desinstallation/wireshark', name: 'desinstallerWireshark')]
     public function desinstallerWireshark(){
         $desinstallation = new Ansible;
-        $desinstallation->desinstaller('wireshark');
-        return $this->render('membre/etat_machines/uninstalls/wireshark.html.twig');
+        $e = $desinstallation->desinstaller('wireshark');
+        $err = explode(' ', $e);
+        $tailleTab = count($err);
+        for($cpt = 0; $cpt < $tailleTab; $cpt++) {
+            if($err[$cpt] == 'FAILED!') {
+                $e = explode('"', $e);
+                $err = $e[3];
+                $cpt = $tailleTab;
+            } elseif ($err[$cpt] == 'changed=0'){
+                $err = "Wireshark n'est pas installé";
+                $cpt = $tailleTab;
+            }
+            elseif($err[$cpt] == 'changed=1'){
+                return $this->render('membre/etat_machines/uninstalls/wireshark.html.twig');
+            }    
+        }
+        return $this->render('membre/etat_machines/erreur.html.twig', array('erreur' => $err));
     }
 
     #[Route('/gerer_fonctionnalites/installation/git', name: 'installerGit')]

@@ -140,7 +140,7 @@ class DefaultController extends AbstractController{
                 $err = 'Wireshark est déjà installé';
                 $cpt = $tailleTab;
             }
-            elseif($err[$cpt] == 'changed=0'){
+            elseif($err[$cpt] == 'changed=1'){
                 return $this->render('membre/etat_machines/installs/wireshark.html.twig');
             }    
         }

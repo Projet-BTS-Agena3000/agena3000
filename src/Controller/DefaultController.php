@@ -125,7 +125,12 @@ class DefaultController extends AbstractController{
     #[Route('/gerer_fonctionnalites/installation/wireshark', name: 'installerWireshark')]
     public function installerWireshark(){
         $installation = new Ansible;
-        $installation->installer('wireshark');
+        try{
+            $installation->installer('wireshark');
+        }
+        catch(\Exception $e){
+            return $this->render('membre/etat_machines/erreur.html.twig')
+        }
         return $this->render('membre/etat_machines/installs/wireshark.html.twig');
     }
 

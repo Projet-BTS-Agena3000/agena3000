@@ -13,6 +13,7 @@ class Ansible
 
     public function installer ($nomService) {
         $output = shell_exec('ansible-playbook ../../playbooks/install/' . $nomService . '.yml --ask-become-pass');
+        shell_exec('../../scripts/motDePasse.sh');
         return $output;
     }
 

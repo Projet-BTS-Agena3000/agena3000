@@ -13,24 +13,7 @@ class Ansible
 
     public function installer ($nomService) {
         $output = shell_exec('ansible-playbook ../../playbooks/install/' . $nomService . '.yml --ask-become-pass');
-        $err = 'jkjk';
-        $err = explode(' ', $output);
-        $tailleTab = count($err);
-        for($cpt = 0; $cpt < $tailleTab; $cpt++) {
-            if($err[$cpt] == 'FAILED!') {
-                $e = explode('"', $output);
-                $err = $e[3];
-                $cpt = $tailleTab;
-            } elseif ($err[$cpt] == 'changed=0'){
-                $err = 'Wireshark est déjà installé';
-                $cpt = $tailleTab;
-            }
-            elseif($err[$cpt] == 'changed=1'){
-                $err = '0';
-            }
-        }    
-        
-        return $err;
+        return $output;
     }
 
     public function desinstaller ($nomService) {

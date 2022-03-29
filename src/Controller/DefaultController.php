@@ -136,11 +136,11 @@ class DefaultController extends AbstractController{
                     $e = explode('"', $e);
                     $err = $e[3];
                     $cpt = $tailleTab;
+                } elseif ($err[$cpt] == 'changed=0'){
+                    $err = 'Wireshark est déjà installé';
+                    $cpt = $tailleTab;
                 }
-                // if ($err[$cpt] == 'changed=0') {
-                //     $err = "Wireshark est déjà installé !";
-                //     $cpt = $tailleTab;
-                // }
+                
             }
             return $this->render('membre/etat_machines/erreur.html.twig', array('erreur' => $err));
         }else{

@@ -128,24 +128,24 @@ class DefaultController extends AbstractController{
         $installation = new Ansible;
         $e = $installation->installer('wireshark');
         $err = explode(' ', $e);
-        if(count($err) > 1){
+        
             
-            $tailleTab = count($err);
-            for($cpt = 0; $cpt < $tailleTab; $cpt++) {
-                if($err[$cpt] == 'FAILED!') {
-                    $e = explode('"', $e);
-                    $err = $e[3];
-                    $cpt = $tailleTab;
-                } elseif ($err[$cpt] == 'changed=0'){
-                    $err = 'Wireshark est déjà installé';
-                    $cpt = $tailleTab;
-                }
-                
+        $tailleTab = count($err);
+        for($cpt = 0; $cpt < $tailleTab; $cpt++) {
+            if($err[$cpt] == 'FAILED!') {
+                $e = explode('"', $e);
+                $err = $e[3];
+                $cpt = $tailleTab;
+            } elseif ($err[$cpt] == 'changed=0'){
+                $err = 'Wireshark est déjà installé';
+                $cpt = $tailleTab;
             }
-            return $this->render('membre/etat_machines/erreur.html.twig', array('erreur' => $err));
-        }else{
-            return $this->render('membre/etat_machines/installs/wireshark.html.twig');
+            elseif($err[$cpt] == 'changed=0'){
+                return $this->render('membre/etat_machines/installs/wireshark.html.twig');
+            }    
         }
+        return $this->render('membre/etat_machines/erreur.html.twig', array('erreur' => $err));
+        
         
         
     }

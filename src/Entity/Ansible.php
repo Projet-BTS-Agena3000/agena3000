@@ -12,8 +12,8 @@ class Ansible
     #[ORM\GeneratedValue]
 
     public function installer ($nomService) {
-        // $output = shell_exec('ansible-playbook ../../playbooks/install/' . $nomService . '.yml --ask-become-pass');
-        $output = shell_exec('echo "BtsSn2022"');
+        $output = shell_exec('ansible-playbook ../../playbooks/install/' . $nomService . '.yml --ask-become-pass');
+        // $output = shell_exec('echo "BtsSn2022"');
         return $output;
     }
 

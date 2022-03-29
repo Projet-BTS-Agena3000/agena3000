@@ -129,7 +129,7 @@ class DefaultController extends AbstractController{
             $installation->installer('wireshark');
         }
         catch(\Exception $e){
-            return $this->render('membre/etat_machines/erreur.html.twig')
+            return $this->render('membre/etat_machines/erreur.html.twig');
         }
         return $this->render('membre/etat_machines/installs/wireshark.html.twig');
     }

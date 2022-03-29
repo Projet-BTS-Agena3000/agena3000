@@ -11,12 +11,11 @@ class Ansible
     #[ORM\Id]
     #[ORM\GeneratedValue]
 
-    public function installer($nomService)
-    {
+    public function installer($nomService):void {
         shell_exec('ansible-playbook ../../playbooks/install/' . $nomService . '.yml --ask-become-pass');
     }
 
-    public function desinstaller($nomService){
+    public function desinstaller($nomService):void {
         shell_exec('ansible-playbook ../../playbooks/uninstall/' . $nomService . '.yml --ask-become-pass');
     }
 }

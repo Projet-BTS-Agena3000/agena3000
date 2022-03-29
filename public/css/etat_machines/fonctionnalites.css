@@ -1,5 +1,20 @@
 body{
   background-color: #191919;
+  
+}
+
+header{
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding: 0 2rem 0 2rem;
+  background-color: #191919;
+  box-shadow: 0px 4px 4px #0c0c0c;
+  margin: 0;
+  height: 4rem;
+}
+
+.items{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -7,7 +22,6 @@ body{
   gap: 2rem;
   padding-top: 5rem ;
 }
-
 
 .item{
   display: flex;
@@ -58,4 +72,31 @@ h3{
 
 .boutonUninstall a:hover{
   background-color: #802b2b;
+}
+
+
+.boutonRetour{
+  background-color: #3d3d3d;  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.boutonRetour a{
+  color: #D6D6D6;
+  text-decoration: none;
+  padding: 0.7rem 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.boutonRetour img{
+  width: 3rem;
+}
+
+.boutonRetour:hover{
+  background-color: #4b4b4b;
 }

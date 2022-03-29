@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Ansible;
 use Symfony\Bundle\MakerBundle\FileManager;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,6 +16,7 @@ use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Validator\Constraints\Length;
 
 class DefaultController extends AbstractController{
     #[Route('/', name: 'default')]
@@ -112,20 +114,78 @@ class DefaultController extends AbstractController{
     }
 
     #[Route('/etat-machines', name: 'etatMachines')]
-    public function etatMachines(){
+    public function etatMachines() {
         return $this->render('membre/etat_machines/etat_machines.html.twig');
     }
 
     #[Route('/gerer_fonctionnalites', name: 'gestionFonctionnalites')]
-    public function gererFonctionnalites(){
+    public function gererFonctionnalites() {
         return $this->render('membre/etat_machines/fonctionnalites.html.twig');
     }
 
     #[Route('/gerer_fonctionnalites/installation/wireshark', name: 'installerWireshark')]
-    public function installerWireshark(){
-        shell_exec('ansible-playbook ../../playbooks/install/wireshark.yml --ask-become-pass');
-        return $this->render('membre/etat_machines/installs/wireshark.html.twig');
+    public function installerWireshark() {
+        $installation = new Ansible;
+        $e = $installation->installer('wireshark');
+        $err = explode(' ', $e);
+        
+            
+        $tailleTab = count($err);
+        for($cpt = 0; $cpt < $tailleTab; $cpt++) {
+            if($err[$cpt] == 'FAILED!') {
+                $e = explode('"', $e);
+                $err = $e[3];
+                $cpt = $tailleTab;
+            } elseif ($err[$cpt] == 'changed=0'){
+                $err = 'Wireshark est déjà installé';
+                $cpt = $tailleTab;
+            }
+            elseif($err[$cpt] == 'changed=1'){
+                return $this->render('membre/etat_machines/installs/wireshark.html.twig');
+            }    
+        }
+        return $this->render('membre/etat_machines/erreur.html.twig', array('erreur' => $err));
+        
+        
+        
     }
+
+    #[Route('/gerer_fonctionnalites/desinstallation/wireshark', name: 'desinstallerWireshark')]
+    public function desinstallerWireshark(){
+        $desinstallation = new Ansible;
+        $e = $desinstallation->desinstaller('wireshark');
+        $err = explode(' ', $e);
+        $tailleTab = count($err);
+        for($cpt = 0; $cpt < $tailleTab; $cpt++) {
+            if($err[$cpt] == 'FAILED!') {
+                $e = explode('"', $e);
+                $err = $e[3];
+                $cpt = $tailleTab;
+            } elseif ($err[$cpt] == 'changed=0'){
+                $err = "Wireshark n'est pas installé";
+                $cpt = $tailleTab;
+            }
+            elseif($err[$cpt] == 'changed=1'){
+                return $this->render('membre/etat_machines/uninstalls/wireshark.html.twig');
+            }    
+        }
+        return $this->render('membre/etat_machines/erreur.html.twig', array('erreur' => $err));
+    }
+
+    #[Route('/gerer_fonctionnalites/installation/git', name: 'installerGit')]
+    public function installerGit(){
+        $installation = new Ansible;
+        $installation->installer('git');
+        return $this->render('membre/etat_machines/installs/git.html.twig');
+    }
+
+    #[Route('/gerer_fonctionnalites/desinstallation/git', name: 'desinstallerGit')]
+    public function desinstallerGit(){
+        $desinstallation = new Ansible;
+        $desinstallation->desinstaller('git');
+        return $this->render('membre/etat_machines/uninstalls/git.html.twig');
+    }
+
 
     #[Route('gerer_fonctionnalites/installation/nginx', name: 'installerNginx')]
     public function installerNginx(){

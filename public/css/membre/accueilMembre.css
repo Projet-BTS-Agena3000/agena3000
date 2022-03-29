@@ -14,7 +14,8 @@ body {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  gap: 28rem;
+  align-items: center;
+  gap: 5rem;
 }
 
 /* Style du titre */
@@ -22,7 +23,6 @@ body {
   text-align: center;
   color: #818181;
   font-size: 3.5em;
-  padding: 2rem 0 4rem 0;
 }
 h1{
   font-weight: 100;
@@ -62,4 +62,8 @@ a {
   /* Retrait du soulignement */
   text-decoration: none;
   font-weight: 100;
+}
+
+.imageCentrale{
+  width: 30rem;
 }

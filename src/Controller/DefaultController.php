@@ -129,6 +129,14 @@ class DefaultController extends AbstractController{
         return $this->render('membre/etat_machines/installs/wireshark.html.twig');
     }
 
+    #[Route('/gerer_fonctionnalites/installation/wireshark', name: 'installerWireshark')]
+    public function desinstallerWireshark(){
+        $desinstallation = new Ansible;
+        $desinstallation->desinstaller('wireshark');
+        return $this->render('membre/etat_machines/uninstalls/wireshark.html.twig');
+    }
+
+
     #[Route('gerer_fonctionnalites/installation/nginx', name: 'installerNginx')]
     public function installerNginx(){
         return $this->render('membre/etat_machines/installs/nginx.html.twig');

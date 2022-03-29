@@ -15,4 +15,8 @@ class Ansible
     {
         shell_exec('ansible-playbook ../../playbooks/install/' . $nomService . '.yml --ask-become-pass');
     }
+
+    public function desinstaller($nomService){
+        shell_exec('ansible-playbook ../../playbooks/uninstall/' . $nomService . '.yml --ask-become-pass');
+    }
 }

@@ -8,7 +8,7 @@ body{
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    gap: 18rem;
+    gap: 5rem;
 }
 
 
@@ -50,6 +50,10 @@ body{
 a{
 /*RETRAIT DU SOULIGNEMENT APRES AVOIR VISITE LE LIEN*/
     text-decoration: none;
+}
+
+.imageCentrale{
+    width: 40rem;
 }
 
 svg#freepik_stories-hand-coding:not(.animated) .animable {

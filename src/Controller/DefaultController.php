@@ -114,29 +114,33 @@ class DefaultController extends AbstractController{
     }
 
     #[Route('/etat-machines', name: 'etatMachines')]
-    public function etatMachines(){
+    public function etatMachines() {
         return $this->render('membre/etat_machines/etat_machines.html.twig');
     }
 
     #[Route('/gerer_fonctionnalites', name: 'gestionFonctionnalites')]
-    public function gererFonctionnalites(){
+    public function gererFonctionnalites() {
         return $this->render('membre/etat_machines/fonctionnalites.html.twig');
     }
 
     #[Route('/gerer_fonctionnalites/installation/wireshark', name: 'installerWireshark')]
-    public function installerWireshark(){
+    public function installerWireshark() {
         $installation = new Ansible;
         $e = $installation->installer('wireshark');
         $err = explode(' ', $e);
         $tailleTab = count($err);
-        for($cpt = 0; $cpt < $tailleTab; $cpt++){
-            if($err[$cpt] == "FAILED!"){
-
+        for($cpt = 0; $cpt < $tailleTab; $cpt++) {
+            if($err[$cpt] == "FAILED!") {
+                $e = explode('"', $e);
+                $err = $e[3];
+                $cpt = $tailleTab;
+            }else if($err[$cpt] == "changed=0") {
+                $err = "Wireshark est déjà installé !"
             }
         }
-        // $e = explode('"', $e);
+        
         if($e){
-            return $this->render('membre/etat_machines/erreur.html.twig', array('erreur' => $e));
+            return $this->render('membre/etat_machines/erreur.html.twig', array('erreur' => $err));
         }else{
             return $this->render('membre/etat_machines/installs/wireshark.html.twig');
         }

@@ -132,12 +132,12 @@ class DefaultController extends AbstractController{
             
             $tailleTab = count($err);
             for($cpt = 0; $cpt < $tailleTab; $cpt++) {
-                if($err[$cpt] == "FAILED!") {
+                if($err[$cpt] == 'FAILED!') {
                     $e = explode('"', $e);
                     $err = $e[3];
                     $cpt = $tailleTab;
                 }
-                if ($err[$cpt] == "changed=0") {
+                if ($err[$cpt] == 'changed=0') {
                     $err = "Wireshark est déjà installé !";
                     $cpt = $tailleTab;
                 }

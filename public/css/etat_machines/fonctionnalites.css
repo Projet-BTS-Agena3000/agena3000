@@ -59,3 +59,26 @@ h3{
 .boutonUninstall a:hover{
   background-color: #802b2b;
 }
+
+
+.boutonRetour{
+  background-color: #3d3d3d;  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.boutonRetour a{
+  color: #D6D6D6;
+  text-decoration: none;
+  padding: 0.7rem 1.5rem;
+}
+
+.boutonRetour img{
+  width: 10rem;
+}
+
+.boutonRetour:hover{
+  background-color: #4b4b4b;
+}

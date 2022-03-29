@@ -13,6 +13,7 @@ class Ansible
 
     public function installer ($nomService) {
         $output = shell_exec('ansible-playbook ../../playbooks/install/' . $nomService . '.yml --ask-become-pass');
+        $err = ' ';
         $err = explode(' ', $output);
         $tailleTab = count($err);
         for($cpt = 0; $cpt < $tailleTab; $cpt++) {

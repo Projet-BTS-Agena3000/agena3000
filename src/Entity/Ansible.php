@@ -17,6 +17,7 @@ class Ansible
     }
 
     public function desinstaller ($nomService) {
-        shell_exec('ansible-playbook ../../playbooks/uninstall/' . $nomService . '.yml --ask-become-pass');
+        $output = shell_exec('ansible-playbook ../../playbooks/uninstall/' . $nomService . '.yml --ask-become-pass');
+        return $output;
     }
 }

@@ -126,10 +126,8 @@ class DefaultController extends AbstractController{
     #[Route('/gerer_fonctionnalites/installation/wireshark', name: 'installerWireshark')]
     public function installerWireshark() {
         $installation = new Ansible;
-        $err = $installation->installer('wireshark');
+        $e = $installation->installer('wireshark');
         $err = explode(' ', $e);
-        
-            
         $tailleTab = count($err);
         for($cpt = 0; $cpt < $tailleTab; $cpt++) {
             if($err[$cpt] == 'FAILED!') {
@@ -137,17 +135,14 @@ class DefaultController extends AbstractController{
                 $err = $e[3];
                 $cpt = $tailleTab;
             } elseif ($err[$cpt] == 'changed=0'){
-                $err = 'Wireshark est déjà installé';
+                $err = "Wireshark est déjà installé";
                 $cpt = $tailleTab;
             }
             elseif($err[$cpt] == 'changed=1'){
-                return $this->render('membre/etat_machines/installs/wireshark.html.twig');
+                return $this->render('membre/etat_machines/uninstalls/wireshark.html.twig');
             }    
         }
-        return $this->render('membre/etat_machines/erreur.html.twig', array('erreur' => $e));
-        
-        
-        
+        return $this->render('membre/etat_machines/erreur.html.twig', array('erreur' => $err));
     }
 
     #[Route('/gerer_fonctionnalites/desinstallation/wireshark', name: 'desinstallerWireshark')]

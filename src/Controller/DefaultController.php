@@ -139,7 +139,7 @@ class DefaultController extends AbstractController{
                 $cpt = $tailleTab;
             }
             elseif($err[$cpt] == 'changed=1'){
-                return $this->render('membre/etat_machines/uninstalls/wireshark.html.twig');
+                return $this->render('membre/etat_machines/installs/wireshark.html.twig');
             }    
         }
         return $this->render('membre/etat_machines/erreur.html.twig', array('erreur' => $err));

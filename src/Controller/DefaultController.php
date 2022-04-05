@@ -65,7 +65,7 @@ class DefaultController extends AbstractController{
                 'label_attr' => ['class' => 'labelText'],
                 
             ])
-            ->add("NbCoeurs", RangeType::class,[
+            ->add("NbCoeurs", IntegerType::class,[
                 "label" => "Nombre de Coeurs",
                 'attr' => [
                     'min' => 1,
@@ -74,7 +74,7 @@ class DefaultController extends AbstractController{
                 ],
                 'label_attr' => ['class' => 'labelText']
             ])
-            ->add("TailleDisque", RangeType::class,[
+            ->add("TailleDisque", IntegerType::class,[
                 "label" => "Taille du disque",
                 'attr' => [
                     'min' => 1,
@@ -83,7 +83,7 @@ class DefaultController extends AbstractController{
                 ],
                 'label_attr' => ['class' => 'labelText']
             ])
-            ->add("TailleRAM", RangeType::class,[
+            ->add("TailleRAM", IntegerType::class,[
                 "label" => "Taille Mémoire RAM",
                 'attr' => [
                     'min' => 1,

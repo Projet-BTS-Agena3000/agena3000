@@ -98,7 +98,7 @@ class DefaultController extends AbstractController{
                 'label_attr' => ['class' => 'labelText']
                 
             ])
-            ->add('submit', SubmitType::class, [
+            ->add('Valider', SubmitType::class, [
                 'attr' => ['class' => 'bouton']
             ])
             

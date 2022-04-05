@@ -62,7 +62,8 @@ class DefaultController extends AbstractController{
             -> add('Vlan', IntegerType::class, [
                 'label' => 'N° VLAN',
                 'attr' => ['class' => 'vlan'],
-                'label_attr' => ['class' => 'labelText']
+                'label_attr' => ['class' => 'labelText'],
+                'min' => 0
             ])
             ->add("NbCoeurs", RangeType::class,[
                 "label" => "Nombre de Coeurs",
@@ -94,7 +95,8 @@ class DefaultController extends AbstractController{
             ->add("NbInterfaces", IntegerType::class,[
                 'attr' => ['class' => 'nbInterfaces'],
                 'label' => "Nombres d'Interfaces Réseaux",
-                'label_attr' => ['class' => 'labelText']
+                'label_attr' => ['class' => 'labelText'],
+                'min' => 0
             ])
             ->add('submit', SubmitType::class, [
                 'attr' => ['class' => 'bouton']

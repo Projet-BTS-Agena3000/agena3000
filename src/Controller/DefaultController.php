@@ -62,7 +62,8 @@ class DefaultController extends AbstractController{
             -> add('Vlan', IntegerType::class, [
                 'label' => 'N° VLAN',
                 'attr' => ['class' => 'vlan'],
-                'label_attr' => ['class' => 'labelText', 'min' => 0],
+                'label_attr' => ['class' => 'labelText'],
+                array('attr' => array('min' => 0))
             ])
             ->add("NbCoeurs", RangeType::class,[
                 "label" => "Nombre de Coeurs",
@@ -94,7 +95,8 @@ class DefaultController extends AbstractController{
             ->add("NbInterfaces", IntegerType::class,[
                 'attr' => ['class' => 'nbInterfaces'],
                 'label' => "Nombres d'Interfaces Réseaux",
-                'label_attr' => ['class' => 'labelText', 'min' => 0],
+                'label_attr' => ['class' => 'labelText'],
+                array('attr' => array('min' => 0))
                 
             ])
             ->add('submit', SubmitType::class, [
@@ -105,7 +107,7 @@ class DefaultController extends AbstractController{
 
         $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid() && $form['Vlan'] > 0 && $form['NbInterfaces'] >= 0){
+        if($form->isSubmitted() && $form->isValid()){
             return $this->render('membre/creation_machine/machineCree.html.twig', $form->getData());
         }
 

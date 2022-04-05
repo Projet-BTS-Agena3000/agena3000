@@ -75,7 +75,7 @@ class DefaultController extends AbstractController{
                 'label_attr' => ['class' => 'labelText']
             ])
             ->add("TailleDisque", IntegerType::class,[
-                "label" => "Taille du disque",
+                "label" => "Taille du disque (en Go)",
                 'attr' => [
                     'min' => 1,
                     'max' => 20,
@@ -84,7 +84,7 @@ class DefaultController extends AbstractController{
                 'label_attr' => ['class' => 'labelText']
             ])
             ->add("TailleRAM", IntegerType::class,[
-                "label" => "Taille Mémoire RAM",
+                "label" => "Taille Mémoire RAM (en Go)",
                 'attr' => [
                     'min' => 1,
                     'max' => 8,

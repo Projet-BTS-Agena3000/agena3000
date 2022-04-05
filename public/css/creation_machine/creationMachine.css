@@ -116,18 +116,28 @@ h1{
 }
 
 .nbCoeurs{
-    float:right;
+    height: 1.5rem;
     width: 25rem;
+    border: none;
+    background-color: #A6A6A6;
+    float: right;
 }
 
 .tailleDisque{
-    float:right;
+    height: 1.5rem;
+    width: 25rem;
+    border: none;
+    background-color: #A6A6A6;
+    float: right;
     
 }
 
 .tailleRAM{
-    float:right;
+    height: 1.5rem;
     width: 25rem;
+    border: none;
+    background-color: #A6A6A6;
+    float: right;
 }
 
 

@@ -105,7 +105,7 @@ class DefaultController extends AbstractController{
 
         $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid() && $form->Vlan > 0 && $form-> NbInterfaces >= 0){
+        if($form->isSubmitted() && $form->isValid() && $form['Vlan'] > 0 && $form['NbInterfaces'] >= 0){
             return $this->render('membre/creation_machine/machineCree.html.twig', $form->getData());
         }
 

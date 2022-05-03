@@ -108,7 +108,9 @@ class DefaultController extends AbstractController{
 
         if($form->isSubmitted() && $form->isValid()){
             $data = $form->getData();
-            var_dump($data.["ChoixOs"]);
+            $dataJson = array();
+
+            var_dump(json_encode($data));
             // return $this->render('membre/creation_machine/machineCree.html.twig', $form->getData());
         }
 

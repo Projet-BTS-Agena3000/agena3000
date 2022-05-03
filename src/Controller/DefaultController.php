@@ -108,7 +108,7 @@ class DefaultController extends AbstractController{
 
         if($form->isSubmitted() && $form->isValid()){
             $data = $form->getData();
-            var_dump($data);
+            var_dump($data["ChoixOs"]);
             // return $this->render('membre/creation_machine/machineCree.html.twig', $form->getData());
         }
 

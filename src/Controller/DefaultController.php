@@ -108,10 +108,9 @@ class DefaultController extends AbstractController{
 
         if($form->isSubmitted() && $form->isValid()){
             $data = $form->getData();
-            $dataJson = array();
+            $dataJson = json_encode($data);
 
-            var_dump(json_encode($data));
-            // return $this->render('membre/creation_machine/machineCree.html.twig', $form->getData());
+            var_dump($dataJson);
         }
 
         return $this->render('membre/creation_machine/ConfigurationMachines.html.twig', [

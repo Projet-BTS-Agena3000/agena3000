@@ -2,10 +2,8 @@
 
 namespace App\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
 use App\Repository\AnsibleRepository;
-use Symfony\Component\Process\Process;
-use Symfony\Component\Process\Exception\ProcessFailedException;
+use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: AnsibleRepository::class)]
 class Ansible
@@ -14,12 +12,8 @@ class Ansible
     #[ORM\GeneratedValue]
 
     public function installer ($nomService) {
-        $process = new Process([shell_exec('ansible-playbook ../../playbooks/install/' . $nomService . '.yml --ask-become-pass')]);
-        $process->start();
-        sleep(5);
-        shell_exec('BtsSn2022');
-
-        return 0;
+        $output = shell_exec('ansible-playbook ../../playbooks/install/' . $nomService . '.yml --ask-become-pass \ -e "ansible_become_pass=BtsSn2022"');
+        return $output;
     }
 
     public function desinstaller ($nomService) {

@@ -107,7 +107,9 @@ class DefaultController extends AbstractController{
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
-            return $this->render('membre/creation_machine/machineCree.html.twig', $form->getData());
+            $data = $form->getData();
+            var_dump($data);
+            // return $this->render('membre/creation_machine/machineCree.html.twig', $form->getData());
         }
 
         return $this->render('membre/creation_machine/ConfigurationMachines.html.twig', [

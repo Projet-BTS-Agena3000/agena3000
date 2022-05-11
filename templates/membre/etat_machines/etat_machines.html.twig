@@ -13,3 +13,118 @@
     </header>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Graph</title>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <figure class="highcharts-figure">
+      <div id="container"></div>
+      <p class="highcharts-description"></p>
+    </figure>
+
+    <script>
+      Highcharts.chart("container", {
+        chart: {
+          type: "areaspline",
+          animation: Highcharts.svg, // don't animate in old IE
+          marginRight: 10,
+          events: {
+            load: function () {
+              // set up the updating of the chart each second
+              var series = this.series[0];
+              setInterval(function () {
+                var x = new Date().getTime(), // current time
+                  y = Math.random() * 1000;
+                series.addPoint([x, y], true, true);
+              }, 1000);
+              if (setInterval() > 95) {
+                return erreur;
+              }
+            },
+          },
+        },
+
+        time: {
+          useUTC: false,
+        },
+
+        title: {
+          text: "Suivit du taux d'utilisation du CPU",
+        },
+
+        accessibility: {
+          announceNewData: {
+            enabled: true,
+            minAnnounceInterval: 15000,
+            announcementFormatter: function (allSeries, newSeries, newPoint) {
+              if (newPoint) {
+                return "New point added. Value: " + newPoint.y;
+              }
+              return false;
+            },
+          },
+        },
+
+        xAxis: {
+          type: "datetime",
+          tickPixelInterval: 150,
+        },
+
+        yAxis: {
+          title: {
+            text: "Utilisation CPU %",
+          },
+          plotLines: [
+            {
+              value: 0,
+              width: 1,
+              color: "#808080",
+            },
+          ],
+        },
+
+        tooltip: {
+          headerFormat: "<b>{series.name}</b><br/>",
+          pointFormat: "{point.x:%Y-%m-%d %H:%M:%S}<br/>{point.y:.2f}",
+        },
+
+        legend: {
+          enabled: false,
+        },
+
+        exporting: {
+          enabled: false,
+        },
+
+        series: [
+          {
+            name: "Random data",
+            data: (function () {
+              // generate an array of random data
+              var data = [],
+                time = new Date().getTime(),
+                i;
+
+              for (i = -19; i <= 0; i += 1) {
+                data.push({
+                  x: time + i * 100,
+                  y: Math.random(),
+                });
+              }
+              return data;
+            })(),
+          },
+        ],
+      });
+    </script>
+  </body>
+</html>
